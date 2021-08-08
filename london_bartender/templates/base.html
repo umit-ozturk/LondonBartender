@@ -15,11 +15,20 @@
 
     <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
 
+      <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     {% block css %}
 
-    <!-- Your stuff: Third-party CSS libraries go here -->{% compress css %}
-    <!-- This file stores project-specific CSS -->
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">{% endcompress %}
+    {% compress css %}
+    <!-- CSS ================================================== -->
+    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    {% endcompress %}
     {% endblock %}
     <!-- Le javascript
     ================================================== -->
@@ -30,12 +39,21 @@
       <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
       <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-      <!-- Your stuff: Third-party javascript libraries go here -->
-
-      <!-- place project specific Javascript in this file -->{% compress js %}
-      <script defer src="{% static 'js/project.js' %}"></script>{% endcompress %}
+    {% compress js %}
+        <!-- script
+        ================================================== -->
+        <script defer src="{% static 'js/project.js' %}"></script>
+        <script src="{% static 'js/modernizr.js' %}"></script>
+        <script src="{% static 'js/pace.min.js' %}"></script>
+    {% endcompress %}
 
     {% endblock javascript %}
+
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
 
   </head>
 
@@ -97,8 +115,25 @@
 
     {% block modal %}{% endblock modal %}
 
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+            <div class="line-scale">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
     {% block inline_javascript %}
-    {# Script tags with only code, no src (defer by default) #}
+        <!-- Java Script ================================================== -->
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'js/plugins.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
     {% endblock inline_javascript %}
   </body>
 </html>
