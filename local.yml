@@ -35,28 +35,28 @@ services:
     env_file:
       - ./.envs/.local/.postgres
 
-#  docs:
-#    image: london_bartender_local_docs
-#    container_name: docs
-#    build:
-#      context: .
-#      dockerfile: ./compose/local/docs/Dockerfile
-#    env_file:
-#      - ./.envs/.local/.django
-#    volumes:
-#      - ./docs:/docs:z
-#      - ./config:/app/config:z
-#      - ./london_bartender:/app/london_bartender:z
-#    ports:
-#      - "7000:7000"
-#    command: /start-docs
+  docs:
+    image: london_bartender_local_docs
+    container_name: docs
+    build:
+      context: .
+      dockerfile: ./compose/local/docs/Dockerfile
+    env_file:
+      - ./.envs/.local/.django
+    volumes:
+      - ./docs:/docs:z
+      - ./config:/app/config:z
+      - ./london_bartender:/app/london_bartender:z
+    ports:
+      - "7000:7000"
+    command: /start-docs
 
-#  mailhog:
-#    image: mailhog/mailhog:v1.0.0
-#    container_name: mailhog
-#    ports:
-#      - "8025:8025"
-#
+  mailhog:
+    image: mailhog/mailhog:v1.0.0
+    container_name: mailhog
+    ports:
+      - "8025:8025"
+
 #  redis:
 #    image: redis:5.0
 #    container_name: redis
