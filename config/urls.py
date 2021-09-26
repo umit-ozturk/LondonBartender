@@ -15,16 +15,17 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     # path("users/", include("london_bartender.users.urls", namespace="users")),
+    path("drinks/", include("london_bartender.drinks.urls", namespace="drinks")),
     # path("accounts/", include("allauth.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # API URLS
-# urlpatterns += [
-#     # API base url
-#     path("api/", include("config.api_router")),
-#     # DRF auth token
-#     path("auth-token/", obtain_auth_token),
-# ]
+urlpatterns += [
+    # API base url
+    path("api/", include("config.api_router")),
+    # DRF auth token
+    path("auth-token/", obtain_auth_token),
+]
 
 if settings.DEBUG:
     urlpatterns += [

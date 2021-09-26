@@ -7,4 +7,4 @@ class ClassicDrinksListView(ListView):
     model = Post
 
     def get_queryset(self):
-        return self.get_queryset().filter(classic=True)
+        return super(ClassicDrinksListView, self).get_queryset().filter(classic=True)
