@@ -76,6 +76,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "london_bartender.users.apps.UsersConfig",
+    "london_bartender.posts.apps.PostsConfig",
     "london_bartender.drinks.apps.DrinksConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
