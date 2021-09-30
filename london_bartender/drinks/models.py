@@ -24,7 +24,7 @@ class Drink(models.Model):
 
 
 class Cocktail(models.Model):
-    post = models.ForeignKey(
+    drink = models.ForeignKey(
         "drinks.Drink",
         blank=True,
         related_name="drink",

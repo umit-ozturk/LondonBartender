@@ -6,6 +6,8 @@ app_name = "drinks"
 
 urlpatterns = [
     path(
-        "classics/", view=ClassicCocktailsListView.as_view(), name="classic_drink_list"
+        "cocktails/classics/",
+        view=ClassicCocktailsListView.as_view(),
+        name="cocktail_classic_list",
     ),
 ]
