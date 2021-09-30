@@ -10,6 +10,7 @@ class Post(models.Model):
         verbose_name=_("Author"),
         on_delete=models.CASCADE,
     )
+    title = models.CharField(_("Title"), null=True, blank=True, max_length=255)
     content = models.TextField(_("Content"))
 
     created_at = models.DateTimeField(
