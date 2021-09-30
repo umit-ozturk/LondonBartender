@@ -13,6 +13,18 @@ class Post(models.Model):
     title = models.CharField(_("Title"), null=True, blank=True, max_length=255)
     content = models.TextField(_("Content"))
 
+    first_image = models.ImageField(
+        _("First Image"), upload_to="images/posts", null=True, blank=True
+    )
+
+    second_image = models.ImageField(
+        _("Second Image"), upload_to="images/posts", null=True, blank=True
+    )
+
+    third_image = models.ImageField(
+        _("Third Image"), upload_to="images/posts", null=True, blank=True
+    )
+
     created_at = models.DateTimeField(
         _("Created time"), auto_now_add=True, editable=False, null=True, blank=True
     )
