@@ -7,10 +7,9 @@ class Drink(models.Model):
         "posts.Post",
         blank=True,
         related_name="drink_post",
-        verbose_name=_("Author"),
+        verbose_name=_("Post"),
         on_delete=models.CASCADE,
     )
-    content = models.TextField(_("Drink content"))
     classic = models.BooleanField(_("Classic Drink"), default=False)
     created_at = models.DateTimeField(
         _("Created time"), auto_now_add=True, editable=False, null=True, blank=True
@@ -20,6 +19,6 @@ class Drink(models.Model):
     )
 
     class Meta:
-        verbose_name = _("Drink Content")
-        verbose_name_plural = _("Drink Contents")
+        verbose_name = _("Drink")
+        verbose_name_plural = _("Drinks")
         ordering = ("-created_at",)
