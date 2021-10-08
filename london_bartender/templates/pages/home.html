@@ -11,21 +11,21 @@
                 <div class="featured">
 
                     <div class="featured__column featured__column--big">
-                        <div class="entry" style="background-image:url('{% static 'images/thumbs/featured/featured-guitarman.jpg' %}');">
+                        <div class="entry" style="background-image:url('{{ featured_post_list.0.first_image.url }}');">
 
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#0">Music</a></span>
+                                <span class="entry__category"><a href="#0">Tag</a></span>
 
-                                <h1><a href="#0" title="">What Your Music Preference Says About You and Your Personality.</a></h1>
+                                <h1><a href="#0" title="">{{ featured_post_list.0.title }}</a></h1>
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="{% static 'images/avatars/user-03.jpg' %}" alt="">
+                                        <img class="avatar" src="{{ featured_post_list.0.first_image.url }}" alt="">
                                     </a>
 
                                     <ul class="entry__meta">
-                                        <li><a href="#0">John Doe</a></li>
-                                        <li>December 29, 2017</li>
+                                        <li><a href="#0">{{ featured_post_list.0.author.name }}</a></li>
+                                        <li>{{ featured_post_list.0.created_at }}</li>
                                     </ul>
                                 </div>
                             </div> <!-- end entry__content -->
@@ -35,42 +35,42 @@
 
                     <div class="featured__column featured__column--small">
 
-                        <div class="entry" style="background-image:url('{% static 'images/thumbs/featured/featured-watch.jpg'%}');">
+                        <div class="entry" style="background-image:url('{{ featured_post_list.1.first_image.url }}');">
 
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#0">Management</a></span>
+                                <span class="entry__category"><a href="#0">Tag</a></span>
 
-                                <h1><a href="#0" title="">The Pomodoro Technique Really Works.</a></h1>
+                                <h1><a href="#0" title="">{{ featured_post_list.1.title }}</a></h1>
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="{% static 'images/avatars/user-03.jpg' %}" alt="">
+                                        <img class="avatar" src="{{ featured_post_list.1.first_image.url }}" alt="">
                                     </a>
 
                                     <ul class="entry__meta">
-                                        <li><a href="#0">John Doe</a></li>
-                                        <li>December 27, 2017</li>
+                                        <li><a href="#0">{{ featured_post_list.1.author.name }}</a></li>
+                                        <li>{{ featured_post_list.1.created_at }}</li>
                                     </ul>
                                 </div>
                             </div> <!-- end entry__content -->
 
                         </div> <!-- end entry -->
 
-                        <div class="entry" style="background-image:url('{% static 'images/thumbs/featured/featured-beetle.jpg' %}');">
+                        <div class="entry" style="background-image:url('{{ featured_post_list.2.first_image.url }}');">
 
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#0">LifeStyle</a></span>
+                                <span class="entry__category"><a href="#0">Tag</a></span>
 
-                                <h1><a href="#0" title="">Throwback To The Good Old Days.</a></h1>
+                                <h1><a href="#0" title="">{{ featured_post_list.2.title }}</a></h1>
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="{% static 'images/avatars/user-03.jpg' %}" alt="">
+                                        <img class="avatar" src="{{ featured_post_list.2.first_image.url }}" alt="">
                                     </a>
 
                                     <ul class="entry__meta">
-                                        <li><a href="#0">John Doe</a></li>
-                                        <li>December 21, 2017</li>
+                                        <li><a href="#0">{{ featured_post_list.2.author.name }}</a></li>
+                                        <li>{{ featured_post_list.2.created_at }}</li>
                                     </ul>
                                 </div>
                             </div> <!-- end entry__content -->
@@ -93,13 +93,23 @@
 
                     <div class="entry__thumb slider">
                         <div class="slider__slides slick-initialized slick-slider slick-dotted" role="toolbar">
-                            <div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 900px;" role="listbox"><div class="slider__slide slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 300px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
-                                <img class="img-responsive" src="{{ post.first_image.url }}" srcset="{{ post.first_image.url }} 1x" alt="">
-                            </div><div class="slider__slide slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide01" style="width: 300px; position: relative; left: -300px; top: 0px; z-index: 998; opacity: 0;">
-                                <img src="{{ post.first_image.url }}" srcset="{{ post.first_image.url }} 1x" alt="">
-                            </div><div class="slider__slide slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide02" style="width: 300px; position: relative; left: -600px; top: 0px; z-index: 998; opacity: 0;">
-                                <img src="{{ post.first_image.url }}" srcset="{{ post.first_image.url }} 1x" alt="">
-                            </div></div></div>
+                            {% if post.first_image %}
+                                <div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 900px;" role="listbox"><div class="slider__slide slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 300px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
+                                    <img class="img-responsive" src="{{ post.first_image.url }}" srcset="{{ post.first_image.url }} 1x" alt="">
+                                </div>
+                            {% endif %}
+                            {% if post.second_image %}
+                                <div class="slider__slide slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide01" style="width: 300px; position: relative; left: -300px; top: 0px; z-index: 998; opacity: 0;">
+                                    <img src="{{ post.second_image.url }}" srcset="{{ post.second_image.url }} 1x" alt="">
+                                </div>
+                            {% endif %}
+                            {% if post.third_image %}
+                                <div class="slider__slide slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide02" style="width: 300px; position: relative; left: -600px; top: 0px; z-index: 998; opacity: 0;">
+                                    <img src="{{ post.third_image.url }}" srcset="{{ post.third_image.url }} 1x" alt="">
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
 
 
                             <ul class="slick-dots" style="" role="tablist">
