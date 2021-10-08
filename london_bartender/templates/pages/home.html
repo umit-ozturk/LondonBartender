@@ -94,15 +94,26 @@
                     <div class="entry__thumb slider">
                         <div class="slider__slides slick-initialized slick-slider slick-dotted" role="toolbar">
                             <div aria-live="polite" class="slick-list draggable" style="height: 390px;"><div class="slick-track" style="opacity: 1; width: 900px;" role="listbox"><div class="slider__slide slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 300px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
-                                <img src="images/thumbs/masonry/gallery/gallery-1-400.jpg" srcset="images/thumbs/masonry/gallery/gallery-1-400.jpg 1x, images/thumbs/masonry/gallery/gallery-1-800.jpg 2x" alt="">
+                                <img src="{{ post.first_image.url }}" srcset="{{ post.first_image.url }} 1x" alt="">
                             </div><div class="slider__slide slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide01" style="width: 300px; position: relative; left: -300px; top: 0px; z-index: 998; opacity: 0;">
-                                <img src="images/thumbs/masonry/gallery/gallery-2-400.jpg" srcset="images/thumbs/masonry/gallery/gallery-2-400.jpg 1x, images/thumbs/masonry/gallery/gallery-2-800.jpg 2x" alt="">
+                                <img src="{{ post.first_image.url }}" srcset="{{ post.first_image.url }} 1x" alt="">
                             </div><div class="slider__slide slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide02" style="width: 300px; position: relative; left: -600px; top: 0px; z-index: 998; opacity: 0;">
-                                <img src="images/thumbs/masonry/gallery/gallery-3-400.jpg" srcset="images/thumbs/masonry/gallery/gallery-3-400.jpg 1x, images/thumbs/masonry/gallery/gallery-3-800.jpg 2x" alt="">
+                                <img src="{{ post.first_image.url }}" srcset="{{ post.first_image.url }} 1x" alt="">
                             </div></div></div>
 
 
-                        <ul class="slick-dots" style="" role="tablist"><li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation00" id="slick-slide00"><button type="button" data-role="none" role="button" tabindex="0">1</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation01" id="slick-slide01"><button type="button" data-role="none" role="button" tabindex="0">2</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation02" id="slick-slide02"><button type="button" data-role="none" role="button" tabindex="0">3</button></li></ul></div>
+                            <ul class="slick-dots" style="" role="tablist">
+                                <li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation00" id="slick-slide00">
+                                    <button type="button" data-role="none" role="button" tabindex="0">1</button>
+                                </li>
+                                <li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation01" id="slick-slide01">
+                                    <button type="button" data-role="none" role="button" tabindex="0">2</button>
+                                </li>
+                                <li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation02" id="slick-slide02">
+                                    <button type="button" data-role="none" role="button" tabindex="0">3</button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="entry__text">
