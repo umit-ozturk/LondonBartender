@@ -25,6 +25,8 @@ class Post(models.Model):
         _("Third Image"), upload_to="images/posts", null=True, blank=True
     )
 
+    featured = models.BooleanField(_("Featured Content"), default=False)
+
     created_at = models.DateTimeField(
         _("Created time"), auto_now_add=True, editable=False, null=True, blank=True
     )

@@ -9,4 +9,5 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data()
         context["post_list"] = Post.objects.all()
+        context["featured_post_list"] = Post.objects.filter(featured=True)[:3]
         return context
