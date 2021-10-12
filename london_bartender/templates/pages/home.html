@@ -14,7 +14,7 @@
                         <div class="entry" style="background-image:url('{{ featured_post_list.0.first_image.url }}');">
 
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#0">Tag</a></span>
+                                <!-- <span class="entry__category"><a href="#0">Tag</a></span> -->
 
                                 <h1><a href="#0" title="">{{ featured_post_list.0.title }}</a></h1>
 
@@ -38,7 +38,7 @@
                         <div class="entry" style="background-image:url('{{ featured_post_list.1.first_image.url }}');">
 
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#0">Tag</a></span>
+                                <!-- <span class="entry__category"><a href="#0">Tag</a></span> -->
 
                                 <h1><a href="#0" title="">{{ featured_post_list.1.title }}</a></h1>
 
@@ -59,7 +59,7 @@
                         <div class="entry" style="background-image:url('{{ featured_post_list.2.first_image.url }}');">
 
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#0">Tag</a></span>
+                                <!-- <span class="entry__category"><a href="#0">Tag</a></span> -->
 
                                 <h1><a href="#0" title="">{{ featured_post_list.2.title }}</a></h1>
 
@@ -89,50 +89,23 @@
         <div class="masonry" style="position: relative; height: 3644px;">
             <div class="grid-sizer"></div>
             {% for post in post_list %}
-                <article class="masonry__brick entry format-gallery aos-init aos-animate" data-aos="fade-up" style="position: absolute; left: 33.3333%; top: 1328px;">
+                <article class="masonry__brick entry format-standard aos-init aos-animate" data-aos="fade-up" style="position: absolute; left: 0%; top: 0px;">
 
-                    <div class="entry__thumb slider">
-                        <div class="slider__slides slick-initialized slick-slider slick-dotted" role="toolbar">
+                    <div class="entry__thumb">
+                        <a href="" class="entry__thumb-link">
                             {% if post.first_image %}
-                                <div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 900px;" role="listbox"><div class="slider__slide slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 300px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
-                                    <img class="img-responsive" src="{{ post.first_image.url }}" srcset="{{ post.first_image.url }} 1x" alt="">
-                                </div>
+                                <img src="{{ post.first_image.url }}" srcset="{{ post.first_image.url }} 1x, {{ post.first_image.url }} 2x" alt="{{ post.title }}">
                             {% endif %}
-                            {% if post.second_image %}
-                                <div class="slider__slide slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide01" style="width: 300px; position: relative; left: -300px; top: 0px; z-index: 998; opacity: 0;">
-                                    <img src="{{ post.second_image.url }}" srcset="{{ post.second_image.url }} 1x" alt="">
-                                </div>
-                            {% endif %}
-                            {% if post.third_image %}
-                                <div class="slider__slide slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide02" style="width: 300px; position: relative; left: -600px; top: 0px; z-index: 998; opacity: 0;">
-                                    <img src="{{ post.third_image.url }}" srcset="{{ post.third_image.url }} 1x" alt="">
-                                </div>
-                            {% endif %}
-                        </div>
-                    </div>
-
-
-                            <ul class="slick-dots" style="" role="tablist">
-                                <li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation00" id="slick-slide00">
-                                    <button type="button" data-role="none" role="button" tabindex="0">1</button>
-                                </li>
-                                <li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation01" id="slick-slide01">
-                                    <button type="button" data-role="none" role="button" tabindex="0">2</button>
-                                </li>
-                                <li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation02" id="slick-slide02">
-                                    <button type="button" data-role="none" role="button" tabindex="0">3</button>
-                                </li>
-                            </ul>
-                        </div>
+                        </a>
                     </div>
 
                     <div class="entry__text">
                         <div class="entry__header">
 
                             <div class="entry__date">
-                                <a href="single-gallery.html">{{ post.created_at }}</a>
+                                <a href="single-standard.html">{{ post.created_at }}</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-gallery.html">{{ post.title }}</a></h1>
+                            <h1 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h1>
 
                         </div>
                         <div class="entry__excerpt">
@@ -140,15 +113,17 @@
                                 {{ post.content | truncatechars:150 }}
                             </p>
                         </div>
+                        <!--
                         <div class="entry__meta">
                             <span class="entry__meta-links">
-                                <a href="category.html">Work</a>
-                                <a href="category.html">Management</a>
+                                <a href="category.html">Design</a>
+                                <a href="category.html">Photography</a>
                             </span>
                         </div>
+                        -->
                     </div>
 
-                </article> <!-- end article -->
+                </article>
             {% endfor %}
         </div> <!-- end masonry -->
     </div> <!-- end masonry-wrap -->
@@ -157,15 +132,15 @@
         <div class="col-full">
             <nav class="pgn">
                 <ul>
-                    <li><a class="pgn__prev" href="#0">Prev</a></li>
-                    <li><a class="pgn__num" href="#0">1</a></li>
-                    <li><span class="pgn__num current">2</span></li>
-                    <li><a class="pgn__num" href="#0">3</a></li>
-                    <li><a class="pgn__num" href="#0">4</a></li>
-                    <li><a class="pgn__num" href="#0">5</a></li>
-                    <li><span class="pgn__num dots">…</span></li>
-                    <li><a class="pgn__num" href="#0">8</a></li>
-                    <li><a class="pgn__next" href="#0">Next</a></li>
+                    {% if post_list.has_previous %}
+                        <li><a class="pgn__prev" href="?page=1">&laquo; First</a></li>
+                        <li><a class="pgn__prev" href="?page={{ post_list.previous_page_number }}">Prev</a></li>
+                    {% endif %}
+                    <li><a class="pgn__num" href="#0">Page {{ post_list.number }} of {{ post_list.paginator.num_pages }}</a></li>
+                    {% if post_list.has_next %}
+                        <li><a class="pgn__next" href="?page={{ post_list.next_page_number }}">Next</a></li>
+                        <li><a class="pgn__next" href="?page={{ post_list.paginator.num_pages }}">Last &raquo;</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
