@@ -84,17 +84,20 @@
         </div> <!-- end pageheader-content row -->
 
     </section> <!-- end s-pageheader -->
-<section class="s-content">
+<section class="s-content" style="padding-top: 0.4rem;">
+    <div class="row">
+        <h1 style="text-align: center;">Classic Cocktails</h1><hr>
+    </div>
     <div class="row masonry-wrap">
         <div class="masonry" style="position: relative; height: 3644px;">
             <div class="grid-sizer"></div>
-            {% for post in post_list %}
+            {% for obj in classic_cocktail_list %}
                 <article class="masonry__brick entry format-standard aos-init aos-animate" data-aos="fade-up" style="position: absolute; left: 0%; top: 0px;">
 
                     <div class="entry__thumb">
                         <a href="" class="entry__thumb-link">
-                            {% if post.first_image %}
-                                <img src="{{ post.first_image.url }}" srcset="{{ post.first_image.url }} 1x, {{ post.first_image.url }} 2x" alt="{{ post.title }}">
+                            {% if obj.drink.post.first_image %}
+                                <img src="{{ obj.drink.post.first_image.url }}" srcset="{{ obj.drink.post.first_image.url }} 1x, {{ obj.drink.post.first_image.url }} 2x" alt="{{ obj.drink.post.title }}">
                             {% endif %}
                         </a>
                     </div>
@@ -103,14 +106,14 @@
                         <div class="entry__header">
 
                             <div class="entry__date">
-                                <a href="single-standard.html">{{ post.created_at }}</a>
+                                <a href="single-standard.html">{{ obj.drink.post.created_at }}</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">{{ post.title }}</a></h1>
+                            <h1 class="entry__title"><a href="single-standard.html">{{ obj.drink.post.title }}</a></h1>
 
                         </div>
                         <div class="entry__excerpt">
                             <p>
-                                {{ post.content | truncatechars:150 }}
+                                {{ obj.drink.post.content | truncatechars:150 }}
                             </p>
                         </div>
                         <!--
@@ -132,14 +135,14 @@
         <div class="col-full">
             <nav class="pgn">
                 <ul>
-                    {% if post_list.has_previous %}
+                    {% if classic_cocktail_list.has_previous %}
                         <li><a class="pgn__prev" href="?page=1">&laquo; First</a></li>
-                        <li><a class="pgn__prev" href="?page={{ post_list.previous_page_number }}">Prev</a></li>
+                        <li><a class="pgn__prev" href="?page={{ classic_cocktail_list.previous_page_number }}">Prev</a></li>
                     {% endif %}
-                    <li><a class="pgn__num" href="#0">Page {{ post_list.number }} of {{ post_list.paginator.num_pages }}</a></li>
-                    {% if post_list.has_next %}
-                        <li><a class="pgn__next" href="?page={{ post_list.next_page_number }}">Next</a></li>
-                        <li><a class="pgn__next" href="?page={{ post_list.paginator.num_pages }}">Last &raquo;</a></li>
+                    <li><a class="pgn__num" href="#0">Page {{ classic_cocktail_list.number }} of {{ classic_cocktail_list.paginator.num_pages }}</a></li>
+                    {% if classic_cocktail_list.has_next %}
+                        <li><a class="pgn__next" href="?page={{ classic_cocktail_list.next_page_number }}">Next</a></li>
+                        <li><a class="pgn__next" href="?page={{ classic_cocktail_list.paginator.num_pages }}">Last &raquo;</a></li>
                     {% endif %}
                 </ul>
             </nav>
