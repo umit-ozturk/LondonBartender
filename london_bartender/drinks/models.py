@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
 
@@ -36,6 +37,7 @@ class Cocktail(models.Model):
         verbose_name=_("Drink"),
         on_delete=models.CASCADE,
     )
+    slug = models.SlugField(_("Slug"), max_length=255, null=True)
     classic = models.BooleanField(_("Classic Drink"), default=False)
     created_at = models.DateTimeField(
         _("Created time"),
@@ -50,8 +52,13 @@ class Cocktail(models.Model):
 
     def get_absolute_url(self):
         return reverse(
-            "drinks:cocktail_classic_detail", kwargs={"id": self.id}
+            "drinks:cocktail_classic_detail", kwargs={"id": self.slug}
         )
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.drink.post.title)
+        super(Cocktail, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = _("Cocktail")

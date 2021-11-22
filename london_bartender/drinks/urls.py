@@ -14,7 +14,7 @@ urlpatterns = [
         name="cocktail_classic_list",
     ),
     path(
-        "cocktails/classics/<int:pk>",
+        "cocktails/classics/<str:slug>",
         view=ClassicCocktailsDetailView.as_view(),
         name="cocktail_classic_detail",
     ),
