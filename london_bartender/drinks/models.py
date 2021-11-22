@@ -52,7 +52,7 @@ class Cocktail(models.Model):
 
     def get_absolute_url(self):
         return reverse(
-            "drinks:cocktail_classic_detail", kwargs={"id": self.slug}
+            "drinks:cocktail_classic_detail", kwargs={"slug": self.slug}
         )
 
     def save(self, *args, **kwargs):
