@@ -9,7 +9,16 @@ class ClassicCocktailsListView(ListView):
     paginate_by = 4
 
     def get_queryset(self):
-        return super(ClassicCocktailsListView, self).get_queryset().filter(classic=True)
+        return (
+            super(ClassicCocktailsListView, self)
+            .get_queryset()
+            .filter(classic=True)
+        )
+
+
+class ClassicCocktailsDetailView(DetailView):
+    model = Cocktail
+    template_name = "drinks/cocktail_classic_detail.html"
 
 
 class CocktailDetailView(DetailView):

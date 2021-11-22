@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 
@@ -11,7 +12,11 @@ class Drink(models.Model):
         on_delete=models.CASCADE,
     )
     created_at = models.DateTimeField(
-        _("Created time"), auto_now_add=True, editable=False, null=True, blank=True
+        _("Created time"),
+        auto_now_add=True,
+        editable=False,
+        null=True,
+        blank=True,
     )
     updated_at = models.DateTimeField(
         _("Updated time"), auto_now=True, editable=False, null=True, blank=True
@@ -33,11 +38,20 @@ class Cocktail(models.Model):
     )
     classic = models.BooleanField(_("Classic Drink"), default=False)
     created_at = models.DateTimeField(
-        _("Created time"), auto_now_add=True, editable=False, null=True, blank=True
+        _("Created time"),
+        auto_now_add=True,
+        editable=False,
+        null=True,
+        blank=True,
     )
     updated_at = models.DateTimeField(
         _("Updated time"), auto_now=True, editable=False, null=True, blank=True
     )
+
+    def get_absolute_url(self):
+        return reverse(
+            "drinks:cocktail_classic_detail", kwargs={"id": self.id}
+        )
 
     class Meta:
         verbose_name = _("Cocktail")
